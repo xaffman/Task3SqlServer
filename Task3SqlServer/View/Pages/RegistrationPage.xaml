@@ -1,0 +1,132 @@
+﻿<Page x:Class="Task3SqlServer.View.Pages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Task3SqlServer.View.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="600"
+      d:DesignWidth="800"
+      FontFamily="Comic Sans MS">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Images/1.png"
+               Grid.Column="0"
+               Stretch="UniformToFill" Margin="0,63,0,63"/>
+
+        <TextBlock Text="Практическая работа №3. Разработка системы авторизации с использованием EF и SQLServer"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   Foreground="White"
+                   FontWeight="SemiBold"
+                   FontSize="25"
+                   Grid.Column="1"
+                   Margin="5"/>
+
+        <Border Background="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="300"
+                Height="200"
+                Grid.Column="1"
+                CornerRadius="25"
+                Effect="{StaticResource MaterialDesignElevationShadow16}">
+            <Grid>
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PeopleAdd"
+                                                 Margin="0 15 3 0"
+                                                 Foreground="DarkOliveGreen"/>
+                        <TextBox Width="199"
+                                 x:Name="TbLogin"
+                                 Foreground="DarkOliveGreen"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 materialDesign:HintAssist.Hint="Введите логин"
+                                 materialDesign:HintAssist.Foreground="DarkOliveGreen"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="DarkOliveGreen"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0 5 0 0">
+                        <materialDesign:PackIcon Kind="Shield"
+                                                 Margin="0 15 3 0"
+                                                 Foreground="DarkOliveGreen"/>
+                        <PasswordBox Width="199"
+                                     Foreground="DarkOliveGreen"
+                                     x:Name="PbPassword"
+                                     materialDesign:TextFieldAssist.HasClearButton="True"
+                                     materialDesign:HintAssist.Hint="Введите пароль"
+                                     materialDesign:HintAssist.Foreground="DarkOliveGreen"
+                                     Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                     materialDesign:TextFieldAssist.UnderlineBrush="DarkOliveGreen"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal"
+                                Margin="0 5 0 0">
+                        <materialDesign:PackIcon Kind="ChairSchool"
+                                                 Margin="0 5 3 0"
+                                                 Foreground="DarkOliveGreen"/>
+                        <ComboBox Width="199"
+                                  x:Name="CbRole"
+                                  DisplayMemberPath="RoleID"
+                                  Foreground="DarkOliveGreen"
+                                  Background="White"
+                                  Style="{StaticResource MaterialDesignComboBox}"
+                                  materialDesign:TextFieldAssist.UnderlineBrush="DarkOliveGreen"
+                                  materialDesign:HintAssist.Hint="Выбрать роль"
+                                  FontSize="12" SelectionChanged="CbRole_SelectionChanged"/>
+                    </StackPanel>
+
+                    <Button Margin="0 20 0 0"
+                            Background="Transparent"
+                            Foreground="DarkOliveGreen"
+                            BorderBrush="DarkOliveGreen"
+                            x:Name="BtnRegistration"
+                            Click="BtnRegistration_Click"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            materialDesign:ButtonProgressAssist.IndicatorForeground="DarkOliveGreen"
+                            materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                            materialDesign:ButtonProgressAssist.Value="-1"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="True">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Check"
+                                                     Margin="0 2 3 0"/>
+                            <TextBlock Text="Зарегистрироваться"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Margin="0 0 0 100"
+                    Grid.Column="1">
+            <TextBlock Text="WIN"
+                       FontSize="15"
+                       Foreground="LightGray"
+                       TextAlignment="Center"/>
+            <Button Background="Transparent"
+                    Foreground="White"
+                    BorderBrush="Transparent"
+                    x:Name="BtnLogin"
+                    Click="BtnLogin_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Login"
+                                             Margin="0 2 3 0"/>
+                    <TextBlock Text="Войти в систему"
+                               TextDecorations="Underline"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
